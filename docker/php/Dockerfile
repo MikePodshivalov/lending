@@ -53,7 +53,6 @@ RUN pecl install -o -f redis \
 &&  rm -rf /tmp/pear \
 &&  docker-php-ext-enable redis
 
-EXPOSE 9000
 CMD ["php-fpm"]
 
 ARG XDEBUG=false

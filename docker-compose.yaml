@@ -87,7 +87,7 @@ services:
     hostname: redis
     container_name: redis
     ports:
-      - "6379:6379"
+      - "63791:63791"
     environment:
       - REDIS_REPLICATION_MODE=master
     networks:
