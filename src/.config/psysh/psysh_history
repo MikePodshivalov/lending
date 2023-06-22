@@ -1,2 +1,6 @@
 $app
 exit
+echo Arr::random(['ООО', 'АО', 'ПАО', 'ИП']) . ' "' . $faker->words(rand(1, 3)) . '"';
+echo Arr::random(['ООО', 'АО', 'ПАО', 'ИП']);
+echo Arr::random(['ООО', 'АО', 'ПАО', 'ИП']);
+exit
