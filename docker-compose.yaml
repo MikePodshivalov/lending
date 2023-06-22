@@ -31,34 +31,34 @@ services:
       - db
 
   # Обработчик для стандартной очереди событий
-#  queues:
-#    build:
-#      context: .
-#      dockerfile: docker/php/Dockerfile
-#      args:
-#        XDEBUG: "true"
-#        UID: 1000
-#        GID: 1000
-#    command: /var/www/scripts/queue.sh
-#    container_name: queues
-#    restart: unless-stopped
-#    environment:
-#      PHP_IDE_CONFIG: "serverName=lending"
-#    extra_hosts:
-#      - "host.docker.internal:host-gateway"
-#    tty: true
-#    env_file:
-#      - ./src/.env
-#    working_dir: /var/www
-#    volumes:
-#      - ./src:/var/www
-#    networks:
-#      - app-network
-#    depends_on:
-#      - redis
-#      - mailhog
-#      - rabbitmq
-#      - db
+  queues:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+      args:
+        XDEBUG: "true"
+        UID: 1000
+        GID: 1000
+    command: /var/www/scripts/queue.sh
+    container_name: queues
+    restart: unless-stopped
+    environment:
+      PHP_IDE_CONFIG: "serverName=lending"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    tty: true
+    env_file:
+      - ./src/.env
+    working_dir: /var/www
+    volumes:
+      - ./src:/var/www
+    networks:
+      - app-network
+    depends_on:
+      - redis
+      - mailhog
+      - rabbitmq
+      - db
 
   #Nginx Service
   webserver:
