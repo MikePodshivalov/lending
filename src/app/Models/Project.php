@@ -2,13 +2,13 @@
 
 namespace App\Models;
 
-use App\Models\Enums\LoanStatus;
-use App\Models\Enums\LoanType;
+use App\Models\Enums\ProjectStatus;
+use App\Models\Enums\ProjectType;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Loan extends Model
+class Project extends Model
 {
     use HasFactory;
 
@@ -29,8 +29,8 @@ class Loan extends Model
     public function type(): Attribute
     {
         return Attribute::make(
-            get: fn($value, $attributes) => LoanType::make($value),
-            set: fn(LoanType $value, $attributes) => $value->value,
+            get: fn($value, $attributes) => ProjectType::make($value),
+            set: fn(ProjectType $value, $attributes) => $value->value,
         );
     }
 
@@ -42,8 +42,8 @@ class Loan extends Model
     public function status(): Attribute
     {
         return Attribute::make(
-            get: fn($value, $attributes) => LoanStatus::make($value),
-            set: fn(LoanStatus $value, $attributes) => $value->value,
+            get: fn($value, $attributes) => ProjectStatus::make($value),
+            set: fn(ProjectStatus $value, $attributes) => $value->value,
         );
     }
 }

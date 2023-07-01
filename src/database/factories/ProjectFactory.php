@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Enums\LoanStatus;
-use App\Models\Enums\LoanType;
-use App\Models\Loan;
+use App\Models\Enums\ProjectStatus;
+use App\Models\Enums\ProjectType;
+use App\Models\Project;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Arr;
 use Faker\Factory as Faker;
 
 /**
- * @extends Factory<Loan>
+ * @extends Factory<Project>
  */
-class LoanFactory extends Factory
+class ProjectFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -25,9 +25,9 @@ class LoanFactory extends Factory
 
         return [
             'name' => Arr::random(['ООО', 'АО', 'ПАО', 'ИП']) . ' "' . $faker->text(rand(5, 20)) . '"',
-            'type' => Arr::random(LoanType::cases()),
+            'type' => Arr::random(ProjectType::cases()),
             'amount' => rand(1, 400) * 10,
-            'status' => Arr::random(LoanStatus::cases()),
+            'status' => Arr::random(ProjectStatus::cases()),
         ];
     }
 }

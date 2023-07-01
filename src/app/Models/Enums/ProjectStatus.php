@@ -5,7 +5,7 @@ namespace App\Models\Enums;
 /**
  * Сущность статуса проекта
  */
-enum LoanStatus: string
+enum ProjectStatus: string
 {
     case Preparation = "Подотовка";
     case Realization = "Реализация";
@@ -17,9 +17,9 @@ enum LoanStatus: string
      *
      * @param string $status
      *
-     * @return LoanStatus
+     * @return ProjectStatus
      */
-    public static function make(string $status): LoanStatus
+    public static function make(string $status): ProjectStatus
     {
         return match ($status) {
             self::Preparation->value => self::Preparation,

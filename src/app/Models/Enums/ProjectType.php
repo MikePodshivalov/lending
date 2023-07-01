@@ -5,7 +5,7 @@ namespace App\Models\Enums;
 /**
  * Сущность типа для проекта
  */
-enum LoanType: string
+enum ProjectType: string
 {
     case Loan = "Кредитная заявка";
     case ChangingConditions = "Изменение условий";
@@ -16,9 +16,9 @@ enum LoanType: string
      *
      * @param string $type
      *
-     * @return LoanType
+     * @return ProjectType
      */
-    public static function make(string $type): LoanType
+    public static function make(string $type): ProjectType
     {
         return match ($type) {
             self::Loan->value => self::Loan,
