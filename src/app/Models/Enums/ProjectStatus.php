@@ -7,10 +7,10 @@ namespace App\Models\Enums;
  */
 enum ProjectStatus: string
 {
-    case Preparation = "Подотовка";
-    case Realization = "Реализация";
-    case Signing = "Подписание";
-    case Expectation = 'Ожидание';
+    case Active = "Активный";
+    case Pause = "Пауза";
+    case Rejection = "Отказ";
+    case Done = 'Реализован';
 
     /**
      * Создание енама статуса проекта.
@@ -22,10 +22,10 @@ enum ProjectStatus: string
     public static function make(string $status): ProjectStatus
     {
         return match ($status) {
-            self::Preparation->value => self::Preparation,
-            self::Realization->value => self::Realization,
-            self::Signing->value => self::Signing,
-            self::Expectation->value => self::Expectation,
+            self::Active->value => self::Active,
+            self::Pause->value => self::Pause,
+            self::Rejection->value => self::Rejection,
+            self::Done->value => self::Done,
         };
     }
 }
