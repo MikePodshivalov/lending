@@ -7,7 +7,17 @@ use App\Models\Enums\ProjectType;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 
+/**
+ * @property int $id
+ * @property string $name
+ * @property string $type
+ * @property int $amount
+ * @property string $status
+ * @property Carbon $created_at
+ * @property Carbon $updated_at
+ */
 class Project extends Model
 {
     use HasFactory;

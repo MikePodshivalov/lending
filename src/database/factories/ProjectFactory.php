@@ -24,7 +24,7 @@ class ProjectFactory extends Factory
         $faker = Faker::create();
 
         return [
-            'name' => Arr::random(['ООО', 'АО', 'ПАО', 'ИП']) . ' "' . $faker->text(rand(5, 20)) . '"',
+            'name' => Arr::random(['ООО', 'АО', 'ПАО', 'ИП']) . ' "' . $faker->words(rand(1, 3), true) . '"',
             'type' => Arr::random(ProjectType::cases()),
             'amount' => rand(1, 400) * 10,
             'status' => Arr::random(ProjectStatus::cases()),
