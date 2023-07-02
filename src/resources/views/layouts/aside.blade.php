@@ -12,8 +12,22 @@
                 {{--                    <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">--}}
                 {{--                </div>--}}
             <div class="info">
-                <a href="#" class="d-block">{{ 'name' }}</a>
+                <a href="#" class="d-block">{{ Auth::user()->getName() }}</a>
             </div>
+            @if (Route::has('login'))
+                @auth
+                    <!-- Authentication -->
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="button" class="btn btn-block btn-secondary btn-sm"
+                                href="route('logout')"
+                                onclick="event.preventDefault();
+                                        this.closest('form').submit();">
+                            logout
+                        </button>
+                    </form>
+                @endauth
+            @endif
         </div>
 
         <!-- Sidebar Menu -->
@@ -22,7 +36,7 @@
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{ route('project.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>Проекты</p>
                     </a>
