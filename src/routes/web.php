@@ -22,6 +22,7 @@ Route::get('/', function () {
 
 Route::get('/home', HomeController::class)->middleware(['auth', 'verified'])->name('home');
 Route::get('/projects', [ProjectsControllerInterface::class, 'getProjectsList'])->middleware(['auth', 'verified'])->name('project.index');
+Route::delete('/projects/{project}', [ProjectsControllerInterface::class, 'deleteProject'])->middleware(['auth', 'verified'])->name('project.delete');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

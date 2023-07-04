@@ -5,6 +5,7 @@ namespace App\Http\Controllers\ProjectsController;
 use App\Http\Controllers\Controller;
 use App\Models\Project;
 use App\Repositories\ProjectsRepository\ProjectsRepositoryInterface;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -27,7 +28,7 @@ class ProjectsController extends Controller implements ProjectsControllerInterfa
      */
     public function getProjectsList(Request $request): View
     {
-        $projects = Project::latest()->paginate(30);;
+        $projects = $this->projectsRepository->getLatestProjects(30);
 
         return view('project.index', compact('projects'));
     }
@@ -51,8 +52,10 @@ class ProjectsController extends Controller implements ProjectsControllerInterfa
     /**
      * @inheritdoc
      */
-    public function deleteProject(Request $request): View
+    public function deleteProject(Request $request, Project $project): RedirectResponse
     {
-        // TODO: Implement deleteProject() method.
+        $this->projectsRepository->deleteProject($project);
+
+        return redirect()->back();
     }
 }

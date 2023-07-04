@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\ProjectsController;
 
+use App\Models\Project;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -43,5 +45,5 @@ interface ProjectsControllerInterface
      *
      * @return View
      */
-    public function deleteProject(Request $request): View;
+    public function deleteProject(Request $request, Project $project): RedirectResponse;
 }

@@ -53,7 +53,7 @@
                                         <td>{{ $project['status'] }}</td>
                                         <td class="text-center">
                                             <div class="align-middle" style="height: 20px;">
-                                                <form action="№" method="post" id="1">
+                                                <form action="{{ route('project.delete', $project) }}" method="post" id="form-id-{{ $project->id }}">
                                                     @csrf
                                                     @method('DELETE')
                                                     {{--                                        <a data-tooltip="Подробнее" style="font-size: x-small;" href="{{ route('loans.show', $loan) }}">--}}
@@ -63,10 +63,10 @@
                                                     <a data-tooltip="Подробнее" style="font-size: x-small;" href="#">
                                                         <i class="far fa-2x fa-eye"></i>
                                                     </a>
-                                                    <a data-tooltip="Редактирование" style="font-size: xx-small;" href="№">
+                                                    <a data-tooltip="Редактирование" style="font-size: x-small;" href="№">
                                                         <i class="far fa-2x fa-edit"></i>
                                                     </a>
-                                                    <a data-tooltip="Удаление" style="font-size: xx-small;" href="#" onclick="document.getElementById('form-id-1').submit();">
+                                                    <a data-tooltip="Удаление" style="font-size: x-small;" href="#" onclick="document.getElementById('form-id-{{ $project->id }}').submit();">
                                                         <i class="far fa-2x fa-window-close"></i>
                                                     </a>
                                                 </form>
